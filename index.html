@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJS Event</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="vue-event">
+            <p>My age is {{age}}</p>
+            <!--如果不需要传参，此处的括号就可以不写，如:add-->
+            <!--once：事件修饰符-->
+        	<button v-on:click.once="add(1)">加一岁</button>
+            <!--@写法-->
+            <button @click="subtract(1)">减一岁</button>
+            <button v-on:dblclick="add(10)">加十岁</button>
+            <button @dblclick="subtract(10)">减十岁</button><br/><br/><br/>
+            <div id="canvans" @mousemove="updateXY">
+              {{x}},{{y}} --<span @mousemove.stop="">Stop Moving</span>
+            </div>
+            <a @click.prevent="myAlert()"  href="https://www.baidu.com">web site</a><br/><br/><br/>
+            <!--键盘事件和按键修饰符-->
+            <label>name:</label>
+            <input type="text" name="name" @keyup.enter="logName"/>
+            <label>age:</label>
+            <input type="text" name="age" @keyup.alt.enter="logAge"/>            
+        </div>
+    </body>
+    <script src="app.js"></script>
+</html>
